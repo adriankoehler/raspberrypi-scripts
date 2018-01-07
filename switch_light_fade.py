@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 
-#echo 3=120 > /dev/servoblaster
-#echo 24=1 > /dev/pi-blaster
-
+#übergeben 2 parameter-> alte und neue farbe->fade zu neuer farbe
 
 import time
 import os
@@ -11,35 +9,17 @@ import sys
 j2=0.0
 STEP = 1
 DELAY = float(sys.argv[1])
+farbeStart = str(sys.argv[2])
+farbeEnd = str(sys.argv[3])
+r = 0.0
+g = 0.0
+b = 0.0
 
-cmd = "echo 18=0 > /dev/pi-blaster; echo 23=0 > /dev/pi-blaster; echo 24=1 > /dev/pi-blaster"
-os.system(cmd)
-
-def pwm(pin, angle):
-	if pin == 1:
-		pin = 23
-	elif pin == 2:
-		pin = 24
-	elif pin == 3:
-		pin = 18
-	else:
-		print 'such error much wow'
-		
-	print "piblaster: pin[" + str(pin) + "]int[" + str(angle) + "]"
-	cmd = "echo " + str(pin) + "=" + str(angle) + " > /dev/pi-blaster"
+def pwm(r, g, b):
+	print "switchFade: r[" + str(r) + "]g[" + str(g) + "]b[" + str(b)
+	cmd = "echo " + str(18) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(23) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(24) + "=" + str(b) + " > /dev/pi-blaster;"
 	os.system(cmd)
 	time.sleep(DELAY)
 
-	#0,10,1 ->> dann durch 10 // no float
-while True:
-    for i in range(1, 2):
-        for j in range(0, 100, STEP):
-            j2=float(j)/100.00
-            pwm(i,j2)   
-    for i in range(1, 2):
-        for j in range(100, 0, (STEP*-1)):
-            j2=float(j)/100.00
-            pwm(i,j2)
-            
-
-			
+colors = {'white': (1.0, 1.0, 1.0), 'red': (1.0, 0.0, 0.0), 'green': (0.0, 1.0, 0.0), 'blue': (0.0, 1.0, 0.0), 'cyan': (0.0, 1.0, 1.0)}
+(r, g, b) = colors.get(key, (0.0, 0.0, 0.0))
