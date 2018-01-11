@@ -21,7 +21,7 @@ Re,Ge,Be = (0.0, 0.0, 0.0)
 def pwm(r, g, b):
 	print "switchFade: r[" + str(r) + "]g[" + str(g) + "]b[" + str(b) + "]"
 	#cmd = "echo " + str(PINred) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINgreen) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINblue) + "=" + str(b) + " > /dev/pi-blaster;"
-	cmd = "echo " + str(PINred) + "=" + str(r) + " | " + str(PINgreen) + "=" + str(g) + " | " + str(PINblue) + "=" + str(b)
+	cmd = "echo " + str(PINred) + "=" + str(r) + " _ " + str(PINgreen) + "=" + str(g) + " _ " + str(PINblue) + "=" + str(b)
 	os.system(cmd)
 	time.sleep(DELAY)
 
@@ -38,8 +38,13 @@ diffrenceB = Bs - Be
 currentR = Rs - diffrenceR/STEPS
 currentG = Gs - diffrenceG/STEPS
 currentB = Bs - diffrenceB/STEPS
-pwm(currentR, currentG, currentB)
 
+print "RGBs: r[" + str(Rs) + "]g[" + str(Gs) + "]b[" + str(Bs) + "]"
+print "RGBe: r[" + str(Re) + "]g[" + str(Ge) + "]b[" + str(Be) + "]"
+print "current: r[" + str(currentR) + "]g[" + str(currentG) + "]b[" + str(currentB) + "]"
+
+pwm(currentR, currentG, currentB)
+#eins von beiden immer gleich
 while (currentR!=Re and currentG!=Ge and currentB!=Be) :
 	print "test?"
 	currentR -= diffrenceR/STEPS
