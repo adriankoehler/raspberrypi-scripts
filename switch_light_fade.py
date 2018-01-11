@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+# coding: utf8
 
-#übergeben 2 parameter-> alte und neue farbe->fade zu neuer farbe
-#mögliche parameterwerte white,red,green,blue,cyan
+#uebergeben 2 parameter-> alte und neue farbe->fade zu neuer farbe
+#moegliche parameterwerte white,red,green,blue,cyan
 
 import time
 import os
@@ -18,9 +19,9 @@ Rs,Gs,Bs = (0.0, 0.0, 0.0)
 Re,Ge,Be = (0.0, 0.0, 0.0)
 
 def pwm(r, g, b):
-	print "switchFade: r[" + str(r) + "]g[" + str(g) + "]b[" + str(b)
-	cmd = "echo " + str(PINred) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINgreen) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINblue) + "=" + str(b) + " > /dev/pi-blaster;"
-	cmd = "echo " + str(PINred) + "=" + str(r) + " | " + str(PINgreen) + "=" + str(r) + " | " + str(PINblue) + "=" + str(b)
+	print "switchFade: r[" + str(r) + "]g[" + str(g) + "]b[" + str(b) + "]"
+	#cmd = "echo " + str(PINred) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINgreen) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINblue) + "=" + str(b) + " > /dev/pi-blaster;"
+	cmd = "echo " + str(PINred) + "=" + str(r) + " | " + str(PINgreen) + "=" + str(g) + " | " + str(PINblue) + "=" + str(b)
 	os.system(cmd)
 	time.sleep(DELAY)
 
@@ -40,6 +41,7 @@ currentB = Bs - diffrenceB/STEPS
 pwm(currentR, currentG, currentB)
 
 while (currentR!=Re and currentG!=Ge and currentB!=Be) :
+	print "test?"
 	currentR -= diffrenceR/STEPS
 	currentG -= diffrenceG/STEPS
 	currentB -= diffrenceB/STEPS
