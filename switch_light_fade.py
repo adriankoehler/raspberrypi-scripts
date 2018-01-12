@@ -27,17 +27,12 @@ def pwm(r, g, b):
 	time.sleep(DELAY)
 
 #übergebene parameter auslesen und in r,g,b variablen abspeichern/umwandeln
-#TODO: add colors
 colors = {'off': (0.0, 0.0, 0.0), 'white': (1.0, 1.0, 1.0), 'red': (1.0, 0.0, 0.0), 'green': (0.0, 1.0, 0.0), 'blue': (0.0, 0.0, 1.0), 'cyan': (0.0, 1.0, 1.0), 'orange': (1.0, 0.6, 0.25), 'turquoise': (0.0, 1.0, 0.5), 'purple': (0.5, 0.0, 1.0), 'yellow': (1.0, 0.82, 0.47), 'pink': (1.0, 0.0, 1.0)}
 (Rs, Gs, Bs) = colors.get(farbeStart, (0.0, 0.0, 0.0))
 (Re, Ge, Be) = colors.get(farbeEnd, (0.0, 0.0, 0.0))
 
-diffrenceR = Rs - Re
-diffrenceG = Gs - Ge
-diffrenceB = Bs - Be
-currentR = Rs - diffrenceR/STEPS
-currentG = Gs - diffrenceG/STEPS
-currentB = Bs - diffrenceB/STEPS
+diffrenceR, diffrenceG, diffrenceB = (Rs - Re, Gs - Ge, Bs - Be)
+currentR,currentG,currentB = (Rs - diffrenceR/STEPS, Gs - diffrenceG/STEPS, Bs - diffrenceB/STEPS)
 
 print "RGBs: r[" + str(Rs) + "]g[" + str(Gs) + "]b[" + str(Bs) + "]"
 print "RGBe: r[" + str(Re) + "]g[" + str(Ge) + "]b[" + str(Be) + "]"
