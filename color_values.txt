@@ -1,0 +1,12 @@
+if($_GET['Befehl'] === 'rot') {$val = trim(@shell_exec('echo "18=1" > /dev/pi-blaster; echo "23=0" > /dev/pi-blaster; echo "24=0" > /dev/pi-blaster')); $_SESSION["lw"]="rot";}
+    if($_GET['Befehl'] === 'gruen') {$val = trim(@shell_exec('echo "18=0" > /dev/pi-blaster; echo "23=1" > /dev/pi-blaster; echo "24=0" > /dev/pi-blaster')); $_SESSION["lw"]="gruen";}
+    if($_GET['Befehl'] === 'blau') {$val = trim(@shell_exec('echo "18=0" > /dev/pi-blaster; echo "23=0" > /dev/pi-blaster; echo "24=1" > /dev/pi-blaster')); $_SESSION["lw"]="blau";}
+    if($_GET['Befehl'] === 'weiss') {$val = trim(@shell_exec('echo "18=1" > /dev/pi-blaster; echo "23=1" > /dev/pi-blaster; echo "24=1" > /dev/pi-blaster')); $_SESSION["lw"]="weiss";}
+
+    if($_GET['Befehl'] === 'orange') {$val = trim(@shell_exec('echo "18=1" > /dev/pi-blaster; echo "23=0.6" > /dev/pi-blaster; echo "24=0.25" > /dev/pi-blaster')); $_SESSION["lw"]="orange";}
+    if($_GET['Befehl'] === 'tuerkis') {$val = trim(@shell_exec('echo "18=0" > /dev/pi-blaster; echo "23=1" > /dev/pi-blaster; echo "24=0.5" > /dev/pi-blaster')); $_SESSION["lw"]="tuerkis";}
+    if($_GET['Befehl'] === 'lila') {$val = trim(@shell_exec('echo "18=0.5" > /dev/pi-blaster; echo "23=0" > /dev/pi-blaster; echo "24=1" > /dev/pi-blaster')); $_SESSION["lw"]="lila";}
+
+    if($_GET['Befehl'] === 'gelb') {$val = trim(@shell_exec('echo "18=1" > /dev/pi-blaster; echo "23=0.82" > /dev/pi-blaster; echo "24=0.47" > /dev/pi-blaster')); $_SESSION["lw"]="gelb";}
+    if($_GET['Befehl'] === 'cyan') {$val = trim(@shell_exec('echo "18=0" > /dev/pi-blaster; echo "23=1" > /dev/pi-blaster; echo "24=1" > /dev/pi-blaster')); $_SESSION["lw"]="cyan";}
+    if($_GET['Befehl'] === 'pink') {$val = trim(@shell_exec('echo "18=1" > /dev/pi-blaster; echo "23=0" > /dev/pi-blaster; echo "24=1" > /dev/pi-blaster')); $_SESSION["lw"]="pink";}
