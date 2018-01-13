@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf8
 
-#uebergeben 2 parameter-> alte und neue farbe->fade zu neuer farbe
-#moegliche parameterwerte white,red,green,blue,cyan
+#uebergeben 3 parameter [delay zw steps, alte und neue farbe] -> fade zu neuer farbe
+#moegliche parameterwerte white,red,green,blue,cyan, orange, turqouise, purple, yellow, pink
 
 import time
 import os
