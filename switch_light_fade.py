@@ -9,7 +9,7 @@ import os
 import sys
 import math
 
-STEPS = 25
+STEPS = 20
 DELAY = float(sys.argv[1])
 PINred = 18
 PINgreen = 23
@@ -21,8 +21,7 @@ Re,Ge,Be = (0.0, 0.0, 0.0)
 
 def pwm(r, g, b):
 	#print "switchFade: r[" + str(r) + "]g[" + str(g) + "]b[" + str(b) + "]"
-	#cmd = "echo " + str(PINred) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINgreen) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINblue) + "=" + str(b) + " > /dev/pi-blaster;"
-	cmd = "echo " + str(PINred) + "=" + str(r) + " _ " + str(PINgreen) + "=" + str(g) + " _ " + str(PINblue) + "=" + str(b)
+	cmd = "echo " + str(PINred) + "=" + str(r) + " > /dev/pi-blaster;" + "echo " + str(PINgreen) + "=" + str(g) + " > /dev/pi-blaster;" + "echo " + str(PINblue) + "=" + str(b) + " > /dev/pi-blaster;"
 	os.system(cmd)
 	time.sleep(DELAY)
 
